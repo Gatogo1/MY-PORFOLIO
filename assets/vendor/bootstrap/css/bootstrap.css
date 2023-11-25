@@ -2123,7 +2123,6 @@ progress {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  background-color: var(--bs-body-bg);
   background-clip: padding-box;
   border: var(--bs-border-width) solid var(--bs-border-color);
   border-radius: var(--bs-border-radius);
@@ -2132,6 +2131,7 @@ progress {
 @media (prefers-reduced-motion: reduce) {
   .form-control {
     transition: none;
+    border-radius: 5px;
   }
 }
 .form-control[type=file] {
@@ -2163,6 +2163,7 @@ progress {
 .form-control::placeholder {
   color: var(--bs-secondary-color);
   opacity: 1;
+
 }
 .form-control:disabled {
   background-color: var(--bs-secondary-bg);
@@ -3835,6 +3836,7 @@ textarea.form-control-lg {
   text-decoration: none;
   background: none;
   border: 0;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out;
 }
 @media (prefers-reduced-motion: reduce) {

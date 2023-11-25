@@ -1,29 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <title>Gatogo Daniel Porfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
-
-
-</head>
+<?php include('common/head.php');?>
 
 <body>
 
@@ -42,23 +20,6 @@
           <li><a class="nav-link scrollto" href="#services">Services</a></li>
           <li><a class="nav-link scrollto " href="#work">Work</a></li>
           <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
@@ -68,7 +29,7 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/hero-bg.jpg)">
+  <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/image.jpg)">
     <div class="overlay-itro"></div>
     <div class="hero-content display-table">
       <div class="table-cell">
@@ -85,7 +46,7 @@
   <main id="main">
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about-mf sect-pt4 route">
+    <section id="about" data-aos="fade-up"  class="about-mf sect-pt4 route">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -94,7 +55,7 @@
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-sm-6 col-md-5">
-                      <div class="about-img">
+                      <div data-aos="fade-in" class="about-img">
                         <img src="assets/img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
                       </div>
                     </div>
@@ -107,10 +68,10 @@
                       </div>
                     </div>
                   </div>
-                  <div class="skill-mf">
+                  <div data-aos="fade-up"   class="skill-mf">
                     <p class="title-s">Skill</p>
                     <span>HTML</span> <span class="pull-right">85%</span>
-                    <div class="progress">
+                    <div    class="progress">
                       <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <span>CSS3</span> <span class="pull-right">75%</span>
@@ -127,7 +88,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div data-aos="fade-up"  class="col-md-6">
                   <div class="about-me pt-4 pt-md-0">
                     <div class="title-box-2">
                       <h5 class="title-left">
@@ -160,7 +121,7 @@
     </section><!-- End About Section -->
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services-mf pt-5 route">
+    <section id="services" data-aos="fade-up"  class="services-mf pt-5 route">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -176,7 +137,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div data-aos="fade-up"   class="col-md-4">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
@@ -271,11 +232,11 @@
     </section><!-- End Services Section -->
 
     <!-- ======= Counter Section ======= -->
-    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
+    <div data-aos="fade-up"  class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container position-relative">
         <div class="row">
-          <div class="col-sm-3 col-lg-3">
+          <div data-aos="fade-up"   class="col-sm-3 col-lg-3">
             <div class="counter-box counter-box pt-4 pt-md-0">
               <div class="counter-ico">
                 <span class="ico-circle"><i class="bi bi-check"></i></span>
@@ -286,35 +247,35 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-lg-3">
+          <div data-aos="fade-up"   class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
                 <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="25" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">YEARS OF EXPERIENCE</span>
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-lg-3">
+          <div data-aos="fade-up"   class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
                 <span class="ico-circle"><i class="bi bi-people"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="550" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">TOTAL CLIENTS</span>
               </div>
             </div>
           </div>
-          <div class="col-sm-3 col-lg-3">
+          <div data-aos="fade-up"   class="col-sm-3 col-lg-3">
             <div class="counter-box pt-4 pt-md-0">
               <div class="counter-ico">
                 <span class="ico-circle"><i class="bi bi-award"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="48" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">AWARD WON</span>
               </div>
             </div>
@@ -324,10 +285,10 @@
     </div><!-- End Counter Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="work" class="portfolio-mf sect-pt4 route">
+    <section data-aos="fade-up"   id="work" class="portfolio-mf sect-pt4 route">
       <div class="container">
         <div class="row">
-          <div class="col-sm-12">
+          <div data-aos="fade-up"   class="col-sm-12">
             <div class="title-box text-center">
               <h3 class="title-a">
                 Portfolio
@@ -340,14 +301,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div data-aos="fade-up"   class="col-md-4">
             <div class="work-box">
               <a href="assets/img/work-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
                   <img src="assets/img/work-1.jpg" alt="" class="img-fluid">
                 </div>
               </a>
-              <div class="work-content">
+              <div data-aos="fade-up"   class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">Lorem impsum dolor</h2>
@@ -365,13 +326,13 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="work-box">
+            <div data-aos="fade-up"   class="work-box">
               <a href="assets/img/work-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
                   <img src="assets/img/work-2.jpg" alt="" class="img-fluid">
                 </div>
               </a>
-              <div class="work-content">
+              <div data-aos="fade-up"   class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
                     <h2 class="w-title">Loreda Cuno Nere</h2>
@@ -389,7 +350,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="work-box">
+            <div data-aos="fade-up"  class="work-box">
               <a href="assets/img/work-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
                   <img src="assets/img/work-3.jpg" alt="" class="img-fluid">
@@ -413,7 +374,7 @@
             </div>
           </div>
           <div class="col-md-4">
-            <div class="work-box">
+            <div data-aos="fade-up"  class="work-box">
               <a href="assets/img/work-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
                   <img src="assets/img/work-4.jpg" alt="" class="img-fluid">
@@ -490,7 +451,7 @@
     </section><!-- End Portfolio Section -->
 
     <!-- ======= Testimonials Section ======= -->
-    <div class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
+    <div data-aos="fade-up"   class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container">
         <div class="row">
@@ -541,7 +502,7 @@
     </div><!-- End Testimonials Section -->
 
     <!-- ======= Blog Section ======= -->
-    <section id="blog" class="blog-mf sect-pt4 route">
+    <section data-aos="fade-up"   id="blog" class="blog-mf sect-pt4 route">
       <div class="container">
         <div class="row">
           <div class="col-sm-12">
@@ -558,7 +519,7 @@
         </div>
         <div class="row">
           <div class="col-md-4">
-            <div class="card card-blog">
+            <div class="card bg-black card-blog">
               <div class="card-img">
                 <a href="blog-single.html"><img src="assets/img/post-1.jpg" alt="" class="img-fluid"></a>
               </div>
@@ -655,7 +616,7 @@
     </section><!-- End Blog Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
+    <section data-aos="fade-up"   id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
       <div class="overlay-mf"></div>
       <div class="container">
         <div class="row">
@@ -748,7 +709,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
+            <p class="copyright">&copy; Copyright <strong>Gatogo</strong>. All Rights Reserved</p>
             <div class="credits">
               <!--
               All the links in the footer should remain intact.
@@ -756,7 +717,7 @@
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
             -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              Designed by <a href="https://Gatmediagh.com/software">Gatmedia</a>
             </div>
           </div>
         </div>
@@ -777,7 +738,10 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+     AOS.init();
+  </script>
 </body>
 
 </html>

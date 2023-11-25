@@ -90,7 +90,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color: #0078ff;
+  background-color:#1a2838;
 }
 
 .overlay-mf {
@@ -540,7 +540,7 @@ a:hover {
 .navbar .active,
 .navbar .active:focus,
 .navbar li:hover>a {
-  color: #fff;
+  color:  #336f33;
 }
 
 .navbar .dropdown ul {
@@ -763,6 +763,7 @@ a:hover {
 .hero .hero-subtitle {
   font-size: 1.5rem;
   font-weight: 600;
+  color:  #336f33;
 }
 
 @media (min-width: 768px) {
@@ -817,6 +818,7 @@ a:hover {
 .about-mf .box-shadow-full {
   padding-top: 4rem;
   padding-bottom: 4rem;
+  box-shadow: rgba(9, 104, 33, 0.25) 0px 54px 55px, rgba(26, 118, 78, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
 }
 
 .about-mf .about-img {
@@ -859,6 +861,10 @@ a:hover {
   border-radius: 1rem;
   margin-bottom: 3rem;
   text-align: center;
+  box-shadow: rgba(9, 104, 33, 0.25) 0px 54px 55px, rgba(26, 118, 78, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.service-box:hover{
+  background-color: #1a2838;
 }
 
 .service-box:hover .ico-circle {
@@ -934,6 +940,8 @@ a:hover {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   background-color:black;
+  box-shadow: rgba(9, 104, 33, 0.25) 0px 54px 55px, rgba(26, 118, 78, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  border-radius: 10px;
 }
 
 .work-box:hover img {
@@ -1220,6 +1228,8 @@ a:hover {
 @media (min-width: 767px) {
   .card-blog {
     margin-bottom: 3rem;
+    box-shadow: rgba(9, 104, 33, 0.25) 0px 54px 55px, rgba(26, 118, 78, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    background-color: black;
   }
 }
 
@@ -1282,7 +1292,7 @@ a:hover {
 .box-comments,
 .widget-sidebar {
   padding: 2rem;
-  background-color: #fff;
+  background-color:black;
   margin-bottom: 3rem;
 }
 
