@@ -1,6 +1,8 @@
-Thanks for downloading this template!
-
-Template Name: DevFolio
-Template URL: https://bootstrapmade.com/devfolio-bootstrap-portfolio-html-template/
-Author: BootstrapMade.com
-License: https://bootstrapmade.com/license/
+This my portfolio project .
+I used
+*HTML
+*JS
+*CSS
+*BOOTSTRAP
+*PHP 
+for developing this project
