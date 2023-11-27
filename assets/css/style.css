@@ -157,9 +157,9 @@ a:hover {
 }
 
 .line-mf {
-  width: 40px;
+  width: 100px;
   height: 5px;
-  background-color: #0078ff;
+  background-color:#336f33  !important;
   margin: 0 auto;
 }
 
@@ -177,7 +177,7 @@ a:hover {
   content: "";
   position: absolute;
   height: 3px;
-  background-color: #0078ff;
+  background-color:#336f33;
   width: 100px;
   bottom: -12px;
 }
@@ -260,7 +260,7 @@ a:hover {
   line-height: 1.55;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 0 10px #0078ff;
+  box-shadow: 0 0 0 10px #336f33;
   display: block;
 }
 
@@ -849,7 +849,7 @@ a:hover {
 
 .skill-mf .progress .progress-bar {
   height: 0.7rem;
-  background-color: #0078ff;
+  background-color: #124e0b;
 }
 
 /*--------------------------------------------------------------
@@ -889,6 +889,7 @@ a:hover {
 .service-box .ico-circle i {
   line-height: 0;
   font-size: 40px;
+  
 }
 
 .service-box .s-title {
@@ -1446,7 +1447,7 @@ footer {
   text-align: center;
   color: #fff;
   padding: 25px 0;
-  background: #0062d3;
+  background:#336f33;
 }
 
 footer .copyright {

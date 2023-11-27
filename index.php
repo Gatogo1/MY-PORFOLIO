@@ -6,27 +6,8 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-
-      <h1 class="logo"><a href="index.html">Gatogo Daniel</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#work">Work</a></li>
-          <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
+  <?php include('common/header.php');?>
+<!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
   <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/image.jpg)">
@@ -45,10 +26,35 @@
 
   <main id="main">
 
+
+
+<?php
+include('conn.php');
+  $sql="select * from portfolio   ";
+          $result = mysqli_query($conn,$sql)or die( mysqli_error($conn));
+         
+         
+ 
+
+          while ($row=mysqli_fetch_array($result)) {
+$username=$row['username'];
+$email=$row['email'];
+$number=$row['contact'];
+$about=$row['about'];
+$fb=$row['facebook'];
+$lk=$row['linkedin'];
+$git=$row['github'];
+$location=$row['location'];
+
+          }
+
+           
+?>
+
     <!-- ======= About Section ======= -->
     <section id="about" data-aos="fade-up"  class="about-mf sect-pt4 route">
       <div class="container">
-        <div class="row">
+        <div class="row no-gutters">
           <div class="col-sm-12">
             <div class="box-shadow-full">
               <div class="row">
@@ -56,15 +62,15 @@
                   <div class="row">
                     <div class="col-sm-6 col-md-5">
                       <div data-aos="fade-in" class="about-img">
-                        <img src="assets/img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                        <img src="assets/img/myimg.jpg" class="img-fluid rounded b-shadow-a" alt="">
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-7">
                       <div class="about-info">
-                        <p><span class="title-s">Name: </span> <span>Morgan Freeman</span></p>
+                        <p><span class="title-s">Name: </span> <span><?php echo $username ?></span></p>
                         <p><span class="title-s">Profile: </span> <span>full stack developer</span></p>
-                        <p><span class="title-s">Email: </span> <span>contact@example.com</span></p>
-                        <p><span class="title-s">Phone: </span> <span>(617) 557-0089</span></p>
+                        <p><span class="title-s">Email: </span><?php echo $email ?> <span></span></p>
+                        <p><span class="title-s">Phone: </span> <span><?php echo $number ?></span></p>
                       </div>
                     </div>
                   </div>
@@ -72,22 +78,39 @@
                     <p class="title-s">Skill</p>
                     <span>HTML</span> <span class="pull-right">85%</span>
                     <div    class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 85%;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 85%; background-color:#124e0b;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <span>CSS3</span> <span class="pull-right">75%</span>
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 75% ; background-color:#124e0b;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <span>PHP</span> <span class="pull-right">50%</span>
+                    <span>PHP</span> <span class="pull-right">70%</span>
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 50%; background-color:#124e0b;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <span>JAVASCRIPT</span> <span class="pull-right">90%</span>
+                    <span>JAVASCRIPT</span> <span class="pull-right">50%</span>
                     <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: 50% ; background-color:#124e0b;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                   <span>JAVA</span> <span class="pull-right">40%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 40%; background-color:#124e0b;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+<span>C++</span> <span class="pull-right">50%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 50%; background-color:#124e0b;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                    </div>
+
+                    <span>Flutter</span> <span class="pull-right">60%</span>
+                    <div class="progress">
+                      <div class="progress-bar" role="progressbar" style="width: 60%; background-color:#124e0b;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                   </div>
                 </div>
+               
+
+
                 <div data-aos="fade-up"  class="col-md-6">
                   <div class="about-me pt-4 pt-md-0">
                     <div class="title-box-2">
@@ -95,22 +118,22 @@
                         About me
                       </h5>
                     </div>
+                    <p class="lead">Professional Summary</p>
                     <p class="lead">
-                      Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Curabitur arcu erat, accumsan id
-                      imperdiet et, porttitor
-                      at sem. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Nulla
-                      porttitor accumsan tincidunt.
+                    <?php echo $about ?>
                     </p>
-                    <p class="lead">
-                      Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vivamus suscipit tortor eget felis
-                      porttitor volutpat. Vestibulum
-                      ac diam sit amet quam vehicula elementum sed sit amet dui. porttitor at sem.
-                    </p>
-                    <p class="lead">
-                      Nulla porttitor accumsan tincidunt. Quisque velit nisi, pretium ut lacinia in, elementum id enim.
-                      Nulla porttitor accumsan
-                      tincidunt. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
-                    </p>
+                   <h4>Experience</h4>
+                    <ul>
+                      <p>Developer, Gatmedia (2021 - todate)</p>
+                      <p>Duties</p>
+                      <li>Developed and maintained web application using HTML,JAVASCRIPT,CSS5,PHP and MYSQL.</li>
+                      <li> Implemented RESTful APIs to handle data communication between front-end and back-end.</li>
+                      <li>Collaborated with front-end developers to integrate front-end code with back-end functionalit</li>
+                      <li> Debugged and resolved issues to ensure smooth operation of the application.</li>
+                      <li>Contributed to software development lifecycle, including technical documentation, code reviews, and deployment.</li>
+                      <li> Assisted in testing and deploying applications on the production server</li>
+
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -130,7 +153,7 @@
                 Services
               </h3>
               <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              As a full stack developer, I am well-equipped to deliver a wide range of services to support your project's development needs. Whether you need assistance with front-end design, back-end development, or a combination of both, I can provide the expertise and guidance you need. Contact me today to discuss your project and how I can assist you in achieving your goals.
               </p>
               <div class="line-mf"></div>
             </div>
@@ -142,17 +165,15 @@
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
               </div>
-              <div class="service-content">
+              <div data-aos="fade-up" class="service-content">
                 <h2 class="s-title">Web Design</h2>
                 <p class="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                  provident vitae! Magni
-                  tempora perferendis eum non provident.
+                Are you in need of a professional web designer to transform your website? Look no further! I am experienced designers I would create visually stunning and user-friendly websites that will leave a lasting impression on your audience
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div data-aos="fade-up" class="col-md-4">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-card-checklist"></i></span>
@@ -160,39 +181,33 @@
               <div class="service-content">
                 <h2 class="s-title">Web Development</h2>
                 <p class="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                  provident vitae! Magni
-                  tempora perferendis eum non provident.
+                I utilizes advanced coding techniques and frameworks to develop websites that are not only visually stunning but also highly functional. From seamless user experiences to robust back-end functionality, I ensure that your website is reliable and scalable.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div data-aos="fade-up"class="col-md-4">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
               </div>
               <div class="service-content">
-                <h2 class="s-title">Photography</h2>
+                <h2 class="s-title">Mobile App Development</h2>
                 <p class="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                  provident vitae! Magni
-                  tempora perferendis eum non provident.
+                Are you looking for a professional mobile app developer to create your next big idea? Look no further! I am experienced developer to bring your vision to life. With expertise in a wide range of technologies, I can build apps that are not only visually stunning but also highly functional and user-friendly.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
+          <div data-aos="fade-up"class="col-md-4">
             <div class="service-box">
               <div class="service-ico">
                 <span class="ico-circle"><i class="bi bi-binoculars"></i></span>
               </div>
               <div class="service-content">
-                <h2 class="s-title">Responsive Design</h2>
+                <h2 class="s-title">Software Development</h2>
                 <p class="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                  provident vitae! Magni
-                  tempora perferendis eum non provident.
+                 I am dedicated to delivering results that drive business success. I take the time to understand your business goals and objectives, and then tailor our solutions accordingly. Whether you need a comprehensive software solution or a simple website or app, I have the expertise to deliver tangible results. Choose a developer  and watch your business flourish!
                 </p>
               </div>
             </div>
@@ -200,33 +215,17 @@
           <div class="col-md-4">
             <div class="service-box">
               <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-brightness-high"></i></span>
+                <span class="ico-circle "><i class="bi bi-brightness-high"></i></span>
               </div>
               <div class="service-content">
                 <h2 class="s-title">Graphic Design</h2>
                 <p class="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                  provident vitae! Magni
-                  tempora perferendis eum non provident.
+                With my expertise in graphic design, I can create visually stunning designs that effectively communicate your message and leave a lasting impression on your audience. Whether you need a logo, brochure, website, or any other design project, we have the expertise to deliver exceptional results.
                 </p>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-calendar4-week"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Marketing Services</h2>
-                <p class="s-description text-center">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni adipisci eaque autem fugiat! Quia,
-                  provident vitae! Magni
-                  tempora perferendis eum non provident.
-                </p>
-              </div>
-            </div>
-          </div>
+          
         </div>
       </div>
     </section><!-- End Services Section -->
@@ -242,7 +241,7 @@
                 <span class="ico-circle"><i class="bi bi-check"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="450" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">WORKS COMPLETED</span>
               </div>
             </div>
@@ -616,114 +615,15 @@
     </section><!-- End Blog Section -->
 
     <!-- ======= Contact Section ======= -->
-    <section data-aos="fade-up"   id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="contact-mf">
-              <div id="contact" class="box-shadow-full">
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="title-box-2">
-                      <h5 class="title-left">
-                        Send Message Us
-                      </h5>
-                    </div>
-                    <div>
-                      <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-                        <div class="row">
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12 mb-3">
-                            <div class="form-group">
-                              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-                            </div>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="form-group">
-                              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-                            </div>
-                          </div>
-                          <div class="col-md-12 text-center my-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">Your message has been sent. Thank you!</div>
-                          </div>
-                          <div class="col-md-12 text-center">
-                            <button type="submit" class="button button-a button-big button-rouded">Send Message</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                  <div class="col-md-6">
-                    <div class="title-box-2 pt-4 pt-md-0">
-                      <h5 class="title-left">
-                        Get in Touch
-                      </h5>
-                    </div>
-                    <div class="more-info">
-                      <p class="lead">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis dolorum dolorem soluta quidem
-                        expedita aperiam aliquid at.
-                        Totam magni ipsum suscipit amet? Autem nemo esse laboriosam ratione nobis
-                        mollitia inventore?
-                      </p>
-                      <ul class="list-ico">
-                        <li><span class="bi bi-geo-alt"></span> 329 WASHINGTON ST BOSTON, MA 02108</li>
-                        <li><span class="bi bi-phone"></span> (617) 557-0089</li>
-                        <li><span class="bi bi-envelope"></span> contact@example.com</li>
-                      </ul>
-                    </div>
-                    <div class="socials">
-                      <ul>
-                        <li><a href=""><span class="ico-circle"><i class="bi bi-facebook"></i></span></a></li>
-                        <li><a href=""><span class="ico-circle"><i class="bi bi-instagram"></i></span></a></li>
-                        <li><a href=""><span class="ico-circle"><i class="bi bi-twitter"></i></span></a></li>
-                        <li><a href=""><span class="ico-circle"><i class="bi bi-linkedin"></i></span></a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section><!-- End Contact Section -->
+
+    <?php include('common/contact.php');?>
+   <!-- End Contact Section -->
 
   </main><!-- End #main -->
 
   <!-- ======= Footer ======= -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>Gatogo</strong>. All Rights Reserved</p>
-            <div class="credits">
-              <!--
-              All the links in the footer should remain intact.
-              You can delete the links only if you purchased the pro version.
-              Licensing information: https://bootstrapmade.com/license/
-              Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
-            -->
-              Designed by <a href="https://Gatmediagh.com/software">Gatmedia</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer><!-- End  Footer -->
+  <?php include('common/footer.php');?>
+<!-- End  Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
