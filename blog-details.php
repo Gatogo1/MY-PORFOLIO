@@ -1,16 +1,51 @@
+<?php session_start(); ?>
+<?php 
+
+include('conn.php');
+if (isset($_GET['id'])) {
+$id=mysqli_real_escape_string($conn,$_GET['id']);
+$id2=$id;
+
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+<?php 
+     
+         function create_slug($string){
+  $slug=preg_replace('/[^A-Za-z0-9-:-?-()-,-’-]+/', '-', $string);
+  return $slug;} ;
+
+          $sql1="select * from potblog where slug='$id2' ";
+          $result1 = mysqli_query($conn,$sql1)or die( mysqli_error($conn));
+          
+       
+          while ($row1=mysqli_fetch_array($result1)) {
+       
+          
+           $tittle=$row1['tittle'];
+      $image=$row1['image'];
+      $dis=$row1['dis'];
+      $content=$row1['content'];
+       
+          }
+          ?>
+
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>DevFolio Bootstrap Portfolio Template - Blog Single</title>
-  <meta content="" name="description">
+  <title><?php echo $tittle ?></title>
+  <meta content="<?php echo $dis ?>" name="description">
   <meta content="" name="keywords">
-
+  <meta property="og:type"               content="article" />
+<meta property="og:title"              content="<?php echo $tittle?>" />
+<meta property="og:description"        content="<?php echo $tittle ?>" />
+<meta property="og:image" content="https://gatmediagh.com/adm/<?php echo $upload?>/<?php echo $image?>" />
   <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/myimg.jpg" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Vendor CSS Files -->
@@ -34,86 +69,108 @@
 <body>
 
   <!-- ======= Header ======= -->
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
+  <?php include('common/header.php')?>
+  <!-- End Header -->
 
-      <h1 class="logo"><a href="index.html">DevFolio</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto " href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto " href="#work">Work</a></li>
-          <li><a class="nav-link scrollto " href="#blog">Blog</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-    </div>
-  </header><!-- End Header -->
-
-  <div class="hero hero-single route bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
-    <div class="overlay-mf"></div>
-    <div class="hero-content display-table">
-      <div class="table-cell">
-        <div class="container">
-          <h2 class="hero-title mb-4">Blog Details</h2>
-          <ol class="breadcrumb d-flex justify-content-center">
-            <li class="breadcrumb-item">
-              <a href="#">Home</a>
-            </li>
-            <li class="breadcrumb-item">
-              <a href="#">Library</a>
-            </li>
-            <li class="breadcrumb-item active">Data</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
 
   <main id="main">
 
+  <?php 
+
+        
+        include('conn.php');
+
+
+               $one='1';
+                $sql2="select * from potblog where slug='$id2'";
+          $result2 = mysqli_query($conn,$sql2)or die( mysqli_error($conn));
+
+          while ($row2=mysqli_fetch_array($result2)) {
+         
+           
+
+
+
+
+            $data=$row2['id'];
+            $date=$row2['date'];
+            $tittle=$row2['tittle'];
+            $image=$row2['image'];
+            $content=$row2['content'];
+            $category=$row2['category'];
+          $slug=$row2['slug'];;
+
+ 
+ 
+ 
+
+         
+          }
+       
+
+
+ $sql2 = "select * from pagehits where postID='$data' ";
+$result2 = mysqli_query($conn,$sql2)or die( mysqli_error($conn));
+$page_view = mysqli_num_rows($result2) ;
+  
+  $page_v=round($page_view/6);
+           
+//code to get user details
+          $user_ip_address = $_SERVER['REMOTE_ADDR'];
+          $user_agent = $_SERVER['HTTP_USER_AGENT']; 
+           $today = date("Y-m-d");
+           $month=date("F") ;
+
+           $user_agent1=str_replace(' ', '', $user_agent);
+
+//Checking and submitting views into database
+           $sql2 = "select * from pagehits where viewer='$user_agent1' and postID='$data'";
+           $result2= mysqli_query($conn,$sql2)or die( mysqli_error($conn));
+           $user_like = mysqli_num_rows($result2) ;
+        if(mysqli_num_rows($result2)>=1)
+          {
+           $view_color='red';
+          }  
+
+ else{
+    $sql9 = "INSERT INTO `pagehits`( `postID`, `viewer`, `creatorID`) VALUES ('$data','$user_agent1','$creator')";
+    if(mysqli_query($conn,$sql9)){
+       
+    }
+    else{
+      echo 'Error: '.mysqli_error($conn);
+    }   
+   
+                  };
+                
+          
+              
+                 $word= str_word_count( $content);
+                   
+              
+                   
+                 ?>
     <!-- ======= Blog Single Section ======= -->
     <section class="blog-wrapper sect-pt4" id="blog">
       <div class="container">
         <div class="row">
           <div class="col-md-8">
             <div class="post-box">
+            <h1 class="text-center m-4">Blog Details</h1>
+
               <div class="post-thumb">
-                <img src="assets/img/post-1.jpg" class="img-fluid" alt="">
+                <img src="adm/uploadblog/<?php echo $image ?>" class="img-fluid" alt="">
               </div>
               <div class="post-meta">
-                <h1 class="article-title">Lorem ipsum dolor sit amet consec tetur adipisicing</h1>
+                <h1 class="article-title"><?php echo $tittle ?></h1>
                 <ul>
                   <li>
                     <span class="bi bi-person"></span>
-                    <a href="#">Jason London</a>
+                    <a href="#">Gatogo Daniel</a>
                   </li>
                   <li>
                     <span class="bi bi-tag"></span>
-                    <a href="#">Web Design</a>
+                    <a href="#"><?php echo $category ?></a>
                   </li>
                   <li>
                     <span class="bi bi-chat-left-text"></span>
@@ -122,46 +179,13 @@
                 </ul>
               </div>
               <div class="article-content">
-                <p>
-                  Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
-                  porta. Quisque velit
-                  nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque
-                  nec, egestas non nisi. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-                  cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
-                  Nulla quis lorem ut libero malesuada feugiat.
+                <p stlye="background-color:black !important;">
+                <?php echo $content ?>
                 </p>
-                <p>
-                  Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Mauris blandit
-                  aliquet elit, eget tincidunt
-                  nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Donec sollicitudin molestie malesuada.
-                </p>
-                <p>
-                  Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit. Praesent
-                  sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Curabitur arcu erat, accumsan id imperdiet et, porttitor at
-                  sem. Donec rutrum congue leo eget malesuada.
-                </p>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis lorem ut libero malesuada feugiat.
-                  Curabitur arcu erat,
-                  accumsan id imperdiet et, porttitor at sem. Vivamus suscipit tortor eget felis porttitor
-                  volutpat. Vivamus suscipit tortor eget felis porttitor volutpat. Quisque velit nisi, pretium
-                  ut lacinia in, elementum id enim.
-                </p>
-                <blockquote class="blockquote">
-                  <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                </blockquote>
-                <p>
-                  Nulla porttitor accumsan tincidunt. Cras ultricies ligula sed magna dictum porta. Mauris blandit
-                  aliquet elit, eget tincidunt
-                  nibh pulvinar a. Cras ultricies ligula sed magna dictum porta. Lorem ipsum dolor sit amet,
-                  consectetur adipiscing elit. Donec sollicitudin molestie malesuada.
-                </p>
+               
               </div>
             </div>
-            <div class="box-comments">
+       <!-----     <div class="box-comments">
               <div class="title-box-2">
                 <h4 class="title-comments title-left">Comments (34)</h4>
               </div>
@@ -362,7 +386,7 @@
       <div class="row">
         <div class="col-sm-12">
           <div class="copyright-box">
-            <p class="copyright">&copy; Copyright <strong>DevFolio</strong>. All Rights Reserved</p>
+            <p class="copyright">&copy; Copyright <strong>Gatmedia</strong>. All Rights Reserved</p>
             <div class="credits">
               <!--
               All the links in the footer should remain intact.
@@ -370,7 +394,7 @@
               Licensing information: https://bootstrapmade.com/license/
               Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=DevFolio
             -->
-              Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+              Designed by <a href="https://gatmediagh.com/software">Gatogo Daniel</a>
             </div>
           </div>
         </div>

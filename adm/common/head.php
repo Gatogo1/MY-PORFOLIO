@@ -21,7 +21,7 @@ else {
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- favicon -->
-    <link rel=icon href="../assets/img/log1.jpg" sizes="20x20" type="image/png">
+    <link rel=icon href="../assets/img/gatmedia.png"  type="image/png">
 
     <!-- Stylesheet -->
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2968819446328051"

@@ -1,3 +1,31 @@
+<?php include('conn.php');
+  $sql="select * from portfolio   ";
+          $result = mysqli_query($conn,$sql)or die( mysqli_error($conn));
+         
+         
+ 
+
+          while ($row=mysqli_fetch_array($result)) {
+$username=$row['username'];
+$email=$row['email'];
+$image=$row['image'];
+$number=$row['contact'];
+$about=$row['about'];
+$fb=$row['facebook'];
+$lk=$row['linkedin'];
+$git=$row['github'];
+$whatsapp=$row['whatsapp'];
+$location=$row['location'];
+
+
+$name = $username;
+$spilt = explode(" ", $name);
+$surname= $spilt[0]; // piece1
+$firstname= $spilt[1]; // piece2
+
+
+          }?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,8 +44,9 @@
       <div class="table-cell">
         <div class="container">
           <!--<p class="display-6 color-d">Hello, world!</p>-->
-          <h1 class="hero-title mb-4">I am Gatogo Daniel</h1>
+          <h1 class="hero-title mb-4">I am <?php echo $username?></h1>
           <p class="hero-subtitle"><span class="typed" data-typed-items="Designer,Software Developer, Freelancer"></span></p>
+          <button class="btn btn-success"  onclick="window.open('file.doc')">Download CV</button>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div>
       </div>
@@ -28,28 +57,6 @@
 
 
 
-<?php
-include('conn.php');
-  $sql="select * from portfolio   ";
-          $result = mysqli_query($conn,$sql)or die( mysqli_error($conn));
-         
-         
- 
-
-          while ($row=mysqli_fetch_array($result)) {
-$username=$row['username'];
-$email=$row['email'];
-$number=$row['contact'];
-$about=$row['about'];
-$fb=$row['facebook'];
-$lk=$row['linkedin'];
-$git=$row['github'];
-$location=$row['location'];
-
-          }
-
-           
-?>
 
     <!-- ======= About Section ======= -->
     <section id="about" data-aos="fade-up"  class="about-mf sect-pt4 route">
@@ -62,7 +69,7 @@ $location=$row['location'];
                   <div class="row">
                     <div class="col-sm-6 col-md-5">
                       <div data-aos="fade-in" class="about-img">
-                        <img src="assets/img/myimg.jpg" class="img-fluid rounded b-shadow-a" alt="">
+                        <img src="adm/user_pic/<?php echo $image ?>" class="img-fluid rounded b-shadow-a" alt="">
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-7">
@@ -300,6 +307,26 @@ $location=$row['location'];
           </div>
         </div>
         <div class="row">
+        <?php
+include('conn.php');
+  $sql="select * from project    ";
+          $result = mysqli_query($conn,$sql)or die( mysqli_error($conn));
+         
+         
+ 
+
+          while ($row=mysqli_fetch_array($result)) {
+$tittle=$row['tittle'];
+$date=$row['date'];
+$dis=$row['dis'];
+$type=$row['type'];
+$image=$row['image'];
+
+
+          
+
+           
+?>
           <div data-aos="fade-up"   class="col-md-4">
             <div class="work-box">
               <a href="assets/img/work-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
@@ -310,9 +337,9 @@ $location=$row['location'];
               <div data-aos="fade-up"   class="work-content">
                 <div class="row">
                   <div class="col-sm-8">
-                    <h2 class="w-title">Lorem impsum dolor</h2>
+                    <h2 class="w-title"><?php echo $tittle ?></h2>
                     <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
+                      <span class="w-ctegory">Web Design</span> / <span class="w-date"><?php echo $date ?></span>
                     </div>
                   </div>
                   <div class="col-sm-4">
@@ -323,172 +350,15 @@ $location=$row['location'];
                 </div>
               </div>
             </div>
-          </div>
-          <div class="col-md-4">
-            <div data-aos="fade-up"   class="work-box">
-              <a href="assets/img/work-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                <div class="work-img">
-                  <img src="assets/img/work-2.jpg" alt="" class="img-fluid">
-                </div>
-              </a>
-              <div data-aos="fade-up"   class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Loreda Cuno Nere</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div data-aos="fade-up"  class="work-box">
-              <a href="assets/img/work-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                <div class="work-img">
-                  <img src="assets/img/work-3.jpg" alt="" class="img-fluid">
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Mavrito Lana Dere</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div data-aos="fade-up"  class="work-box">
-              <a href="assets/img/work-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                <div class="work-img">
-                  <img src="assets/img/work-4.jpg" alt="" class="img-fluid">
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Bindo Laro Cado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/img/work-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                <div class="work-img">
-                  <img src="assets/img/work-5.jpg" alt="" class="img-fluid">
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Lena Mado</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2018</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="assets/img/work-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
-                <div class="work-img">
-                  <img src="assets/img/work-6.jpg" alt="" class="img-fluid">
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Studio Big Bang</h2>
-                    <div class="w-more">
-                      <span class="w-ctegory">Web Design</span> / <span class="w-date">18 Sep. 2017</span>
-                    </div>
-                  </div>
-                  <div class="col-sm-4">
-                    <div class="w-like">
-                      <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
+        </div>
+        <?php } ?>
         </div>
       </div>
     </section><!-- End Portfolio Section -->
 
-    <!-- ======= Testimonials Section ======= -->
-    <div data-aos="fade-up"   class="testimonials paralax-mf bg-image" style="background-image: url(assets/img/overlay-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
+    
 
-            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-              <div class="swiper-wrapper">
-
-                <div class="swiper-slide">
-                  <div class="testimonial-box">
-                    <div class="author-test">
-                      <img src="assets/img/testimonial-2.jpg" alt="" class="rounded-circle b-shadow-a">
-                      <span class="author">Xavi Alonso</span>
-                    </div>
-                    <div class="content-test">
-                      <p class="description lead">
-                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                      </p>
-                    </div>
-                  </div>
-                </div><!-- End testimonial item -->
-
-                <div class="swiper-slide">
-                  <div class="testimonial-box">
-                    <div class="author-test">
-                      <img src="assets/img/testimonial-4.jpg" alt="" class="rounded-circle b-shadow-a">
-                      <span class="author">Marta Socrate</span>
-                    </div>
-                    <div class="content-test">
-                      <p class="description lead">
-                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Lorem ipsum dolor sit amet,
-                        consectetur adipiscing elit.
-                      </p>
-                    </div>
-                  </div>
-                </div><!-- End testimonial item -->
-              </div>
+                
               <div class="swiper-pagination"></div>
             </div>
 
@@ -510,106 +380,66 @@ $location=$row['location'];
                 Blog
               </h3>
               <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+              
               </p>
               <div class="line-mf"></div>
             </div>
           </div>
         </div>
         <div class="row">
+        <?php
+include('conn.php');
+  $sqls="select * from potblog order by id desc    ";
+          $results = mysqli_query($conn,$sqls)or die( mysqli_error($conn));
+         
+         
+ 
+
+          while ($rows=mysqli_fetch_array($results)) {
+$tittle=$rows['tittle'];
+$blogdate=$rows['date'];
+$dis=$rows['dis'];
+$content=$rows['content'];
+$blogimage=$rows['image'];
+$blogcat=$rows['category'];
+$slug=$rows['slug'];
+
+
+
+          
+$links="blog-details.php?id=$slug";   
+           
+?>
+   
           <div class="col-md-4">
             <div class="card bg-black card-blog">
               <div class="card-img">
-                <a href="blog-single.html"><img src="assets/img/post-1.jpg" alt="" class="img-fluid"></a>
+                <a href="<?=$links;?>"><img src="adm/uploadblog/<?php echo $blogimage ?>" alt="" class="img-fluid"></a>
               </div>
               <div class="card-body">
                 <div class="card-category-box">
                   <div class="card-category">
-                    <h6 class="category">Travel</h6>
+                    <h6 class="category"><?php echo $blogcat ?></h6>
                   </div>
                 </div>
-                <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
                 <p class="card-description">
-                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                  a pellentesque nec,
-                  egestas non nisi.
+                <?php echo $dis ?>
                 </p>
               </div>
               <div class="card-footer">
                 <div class="post-author">
                   <a href="#">
-                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                    <span class="author">Morgan Freeman</span>
+                    <img src="assets/img/myimg.jpg" alt="" class="avatar rounded-circle">
+                    <span class="author">Gatogo Daniel</span>
                   </a>
                 </div>
                 <div class="post-date">
-                  <span class="bi bi-clock"></span> 10 min
+                  <span class="bi bi-clock"><?php echo $blogdate ?></span> 
                 </div>
               </div>
             </div>
           </div>
-          <div class="col-md-4">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a href="blog-single.html"><img src="assets/img/post-2.jpg" alt="" class="img-fluid"></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category">Web Design</h6>
-                  </div>
-                </div>
-                <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-                <p class="card-description">
-                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                  a pellentesque nec,
-                  egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author">
-                  <a href="#">
-                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                    <span class="author">Morgan Freeman</span>
-                  </a>
-                </div>
-                <div class="post-date">
-                  <span class="bi bi-clock"></span> 10 min
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="card card-blog">
-              <div class="card-img">
-                <a href="blog-single.html"><img src="assets/img/post-3.jpg" alt="" class="img-fluid"></a>
-              </div>
-              <div class="card-body">
-                <div class="card-category-box">
-                  <div class="card-category">
-                    <h6 class="category">Web Design</h6>
-                  </div>
-                </div>
-                <h3 class="card-title"><a href="blog-single.html">See more ideas about Travel</a></h3>
-                <p class="card-description">
-                  Proin eget tortor risus. Pellentesque in ipsum id orci porta dapibus. Praesent sapien massa, convallis
-                  a pellentesque nec,
-                  egestas non nisi.
-                </p>
-              </div>
-              <div class="card-footer">
-                <div class="post-author">
-                  <a href="#">
-                    <img src="assets/img/testimonial-2.jpg" alt="" class="avatar rounded-circle">
-                    <span class="author">Morgan Freeman</span>
-                  </a>
-                </div>
-                <div class="post-date">
-                  <span class="bi bi-clock"></span> 10 min
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php } ?>
         </div>
       </div>
     </section><!-- End Blog Section -->

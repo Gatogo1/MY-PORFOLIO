@@ -79,6 +79,12 @@
       <input type="text" class="form-control" id="title" placeholder="Enter your github link here" name="git">
      
     </div>
+
+    <div class="form-group">
+      <label for="title">whatsapp Number</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter your Whatsapp number hear here" name="whatsapp">
+     
+    </div>
      
       <label for="title">about you</label>
       <textarea value="3" style="font-size: 20px"  class="form-control" rows="8"  id="summernote"   name="about"></textarea>
@@ -105,6 +111,7 @@ include('conn.php');
 
 
 if(isset($_POST['submit'])){
+  $filename = $_FILES['image']['name'];
 	$username=$_POST['name'];
   $email=$_POST['email'];
   $number=$_POST['number'];
@@ -112,6 +119,7 @@ if(isset($_POST['submit'])){
   $fb=$_POST['fb'];
   $lk=$_POST['lk'];
   $git=$_POST['git'];
+  $whatsapp=$_POST['whatsapp'];
   $about=$_POST['about'];
 
 
@@ -119,7 +127,7 @@ if(isset($_POST['submit'])){
 
 
 		// Image db insert sql
-		$sql = "INSERT INTO `portfolio`( `username`, `email`, `contact`, `about`,  `facebook`, `linkedin`, `github`, `location`) VALUES ('$username','$email','$number','$about','$fb','$lk','$git','$location')";
+		$sql = "INSERT INTO `portfolio`( `username`, `email`, `contact`, `about`,  `facebook`, `linkedin`, `github`, `whatsapp`, `location`) VALUES ('$username','$email','$number','$about','$fb','$lk','$git','$whatsapp','$location')";
 		if(mysqli_query($conn,$sql)){
       echo"<script>alert('You Have Successfully added your profile); window.location='profile.php'</script>";
 		}

@@ -68,6 +68,7 @@ $result=mysqli_query($conn,$sql);
       $email=$row["email"];
       $_SESSION['status']=$row["status"];
       $_SESSION['fname']=$row["fname"];
+      $_SESSION['sname']=$row["sname"];
         $_SESSION["usertype"]=$row['usertype'] ;
         $_SESSION["device"]=$row['device'] ;
          $_SESSION['image']=$row["image"];

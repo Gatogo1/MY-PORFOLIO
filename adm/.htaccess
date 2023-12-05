@@ -5,16 +5,18 @@ RewriteRule ^(.*)$ https://gatmediagh.com/$1 [R,L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 
-RewriteRule ^news?$ news.php
-RewriteRule ^engineering?$ engineering.php
-RewriteRule ^stories?$ stories.php
-RewriteRule ^movies?$ movies.php
-RewriteRule ^lifestyle?$ lifestyle.php
-RewriteRule ^home?$ index.php
-RewriteRule ^admin?$ adm/manage_blogs.php
+RewriteRule ^about?$ about_display.php
+RewriteRule ^addabout?$ about.php
+RewriteRule ^project?$ project.php
+RewriteRule ^addProject?$ addProject.php
+RewriteRule ^blog?$ blogs.php
+RewriteRule ^dashboard?$ index.php
+RewriteRule ^addblog?$ addblog.php
+RewriteRule ^chat?$ chat.php
 RewriteRule ^profile?$ adm/user_blogs.php
-RewriteRule ^login?$ adm/login.php
-RewriteRule ^logout?$ adm/logout.php
+RewriteRule ^login?$ login.php
+RewriteRule ^logout?$ logout.php
+RewriteRule ^addblog?$ addblog.php
 RewriteRule ^register?$ form.php
 RewriteRule ^post?$ post.php
 

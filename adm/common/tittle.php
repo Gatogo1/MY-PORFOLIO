@@ -1,5 +1,5 @@
     <!---Tittle bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-info">
+    <nav style="background-color:#0c0821;" class="navbar navbar-expand-lg navbar-light">
       <div class="logo">
         <img style="width: 100px; ;" src="image/logo.png" alt="">
     </div>

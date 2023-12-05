@@ -1,20 +1,20 @@
 <!--nav--->
-<div class="content col-sm-2 " style="background-color:rgb(14, 1, 43) ;">
+<div class="content col-sm-2 " style="background-color:#0c0821 ;">
 
                
 
 
-<div class=" container-fluid nav pt-4">
+<div class=" container-fluid nav  pt-4">
     <div class="row">
         <div class="   menu col-sm-12">
-            <a class=" dropdown-toggle" href="" ><i class=" fa fa-dashboard" style="font-size:15px"></i> Dashboard</a> 
+            <a class=" text-white dropdown-toggle" href="dashboard" ><i class=" fa fa-dashboard" style="font-size:15px"></i> Dashboard</a> 
          </div>
 
 
 
 
          <div class="  menu col-sm-12">
-            <a   class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-group" style="font-size:15px"></i>   Manage Users </a> 
+            <a   class=" text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-group" style="font-size:15px"></i>   Manage Users </a> 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <a class="dropdown-item" href="onboard_user.php">Confirm Users</a>
                 <a class="dropdown-item" href="users.php">View Users</a>
@@ -22,17 +22,10 @@
          </div>
 
 
-         <div class="  menu col-sm-12">
-            <a   class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-gears" style="font-size:15px"></i>   General Settings </a> 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="departmentManagment.php">Add Departments</a>
-                <a class="dropdown-item" href="#">SRC Management</a>
-                <a class="dropdown-item" href="#">Add Block</a>
-              </div>
-         </div>
+
 
          <div class="  menu col-sm-12">
-            <a   class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="	fa fa-info-circle" style="font-size:15px"></i>   Info </a> 
+            <a    class="   text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="	fa fa-info-circle" style="font-size:15px"></i>   Info </a> 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="news.php">Manage New</a>
                 <a class="dropdown-item" href="manage_blogs.php">Manage Blogs </a>
@@ -42,20 +35,12 @@
          </div>
 
          <div class="  menu col-sm-12">
-            <a   class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-university" style="font-size:15px"></i>   Academics </a> 
+            <a   class=" text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-file-sound-o" style="font-size:15px"></i> Portfolio </a> 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="class_time_table.php">Class Time Table</a>
-                <a class="dropdown-item" href="#">Academics Calender </a>
-               
-              </div>
-         </div>
-
-         <div class="  menu col-sm-12">
-            <a   class=" dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-file-sound-o" style="font-size:15px"></i> Portfolio </a> 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="about.php">About-me</a>
-                <a class="dropdown-item" href="port/expirience.php">Experience</a>
-                <a class="dropdown-item" href="port/projrct.php">Projects</a>
+                <a class="dropdown-item" href="about">About-me</a>
+                <a class="dropdown-item" href="expiriencephp">Experience</a>
+                <a class="dropdown-item" href="project">Projects</a>
+                <a class="dropdown-item" href="blog">Blogs</a>
                
               </div>
          </div>
