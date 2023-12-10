@@ -32,7 +32,41 @@ $id2=$id;
       $content=$row1['content'];
        
           }
+          $postid=$id2;
+          $pageName=$slug;
           ?>
+
+<?php include('conn.php');
+  $sql="select * from portfolio   ";
+          $result = mysqli_query($conn,$sql)or die( mysqli_error($conn));
+         
+         
+ 
+
+          while ($row=mysqli_fetch_array($result)) {
+$username=$row['username'];
+$email=$row['email'];
+$image=$row['image'];
+$number=$row['contact'];
+$about=$row['about'];
+$fb=$row['facebook'];
+$lk=$row['linkedin'];
+$git=$row['github'];
+$whatsapp=$row['whatsapp'];
+$location=$row['location'];
+$cv=$row['cv'];
+
+
+$name = $username;
+$spilt = explode(" ", $name);
+$surname= $spilt[0]; // piece1
+$firstname= $spilt[1]; // piece2
+
+
+
+include('pagview.php');
+
+          }?>
 
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">

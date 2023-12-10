@@ -90,7 +90,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color:#1a2838;
+  background-color:#1a3825;
 }
 
 .overlay-mf {
@@ -370,7 +370,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #f2f2f2;
-  border-top: 6px solid #0078ff;
+  border-top: 6px solid #0e9243;
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -824,10 +824,11 @@ a:hover {
 
 .about-mf .about-img {
   margin-bottom: 2rem;
+  background-color: #124e0b;
 }
 
 .about-mf .about-img img {
-  margin-left: 10px;
+
 }
 
 @media (min-width: 767px) {

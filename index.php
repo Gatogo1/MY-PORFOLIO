@@ -1,31 +1,35 @@
-<?php include('conn.php');
-  $sql="select * from portfolio   ";
-          $result = mysqli_query($conn,$sql)or die( mysqli_error($conn));
-         
-         
- 
+<?php
 
-          while ($row=mysqli_fetch_array($result)) {
-$username=$row['username'];
-$email=$row['email'];
-$image=$row['image'];
-$number=$row['contact'];
-$about=$row['about'];
-$fb=$row['facebook'];
-$lk=$row['linkedin'];
-$git=$row['github'];
-$whatsapp=$row['whatsapp'];
-$location=$row['location'];
+      include('conn.php');
+
+$sql7="select * from setting";
+$result7 = mysqli_query($conn,$sql7)or die( mysqli_error($conn));
 
 
-$name = $username;
-$spilt = explode(" ", $name);
-$surname= $spilt[0]; // piece1
-$firstname= $spilt[1]; // piece2
+while ($row7=mysqli_fetch_array($result7)) {
+ $data=$row7['id'];
+ $servicetext=$row7['service'];
+   $imageover=$row7['image'];
 
 
-          }?>
 
+
+   $pageName='Home';
+
+$postid='0';
+
+   include('pagview.php');
+
+}
+
+if (empty($image)) {
+  $image="emty.jpg";
+}
+else {
+    $image=$image;
+}
+ ?>
+      
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,7 @@ $firstname= $spilt[1]; // piece2
 <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <div id="hero" class="hero route bg-image" style="background-image: url(assets/img/image.jpg)">
+  <div id="hero" class="hero route bg-image" style="background-image: url(adm/uploadcover/<?php echo $imageover?>)">
     <div class="overlay-itro"></div>
     <div class="hero-content display-table">
       <div class="table-cell">
@@ -46,12 +50,18 @@ $firstname= $spilt[1]; // piece2
           <!--<p class="display-6 color-d">Hello, world!</p>-->
           <h1 class="hero-title mb-4">I am <?php echo $username?></h1>
           <p class="hero-subtitle"><span class="typed" data-typed-items="Designer,Software Developer, Freelancer"></span></p>
-          <button class="btn btn-success"  onclick="window.open('file.doc')">Download CV</button>
+          <button class="btn btn-success"  onclick="window.open('adm/uploadcv/<?php echo $cv ?>')">Download CV</button>
           <!-- <p class="pt-3"><a class="btn btn-primary btn js-scroll px-4" href="#about" role="button">Learn More</a></p> -->
         </div>
       </div>
     </div>
   </div><!-- End Hero Section -->
+
+
+
+</body>
+ 
+</html>
 
   <main id="main">
 
@@ -64,12 +74,17 @@ $firstname= $spilt[1]; // piece2
         <div class="row no-gutters">
           <div class="col-sm-12">
             <div class="box-shadow-full">
+            <div class="title-box-2">
+                      <h5 class="title-left">
+                        About me
+                      </h5>
+                    </div>
               <div class="row">
                 <div class="col-md-6">
                   <div class="row">
                     <div class="col-sm-6 col-md-5">
-                      <div data-aos="fade-in" class="about-img">
-                        <img src="adm/user_pic/<?php echo $image ?>" class="img-fluid rounded b-shadow-a" alt="">
+                      <div style=" background-color: #124e0b;width:150px; border-radius: 50px 10px;" data-aos="fade-in" class="about-img">
+                        <img   data-aos="fade-in"src="adm/user_pic/<?php echo $image ?>" class="img-fluid rounded b-shadow-a" alt="">
                       </div>
                     </div>
                     <div class="col-sm-6 col-md-7">
@@ -82,37 +97,29 @@ $firstname= $spilt[1]; // piece2
                     </div>
                   </div>
                   <div data-aos="fade-up"   class="skill-mf">
-                    <p class="title-s">Skill</p>
-                    <span>HTML</span> <span class="pull-right">85%</span>
+                    <h5 class="title-s">Skill</h5>
+                    <?php 
+               $sql4="select * from potskills ";
+               $result4 = mysqli_query($conn,$sql4)or die( mysqli_error($conn));
+                         
+                    
+                    while ($row4=mysqli_fetch_array($result4)) {
+                        $data=$row4['id'];
+                        $skills=$row4['skills'];
+                        $percent=$row4['percent'];
+                        $dis=$row4['dis'];
+
+                       
+
+                    
+                    ?>    
+                    <span><?php echo $skills ?></span> <span class="pull-right"><?php echo $percent ?>%</span>
                     <div    class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 85%; background-color:#124e0b;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                      <div class="progress-bar" role="progressbar" style="width: <?php echo $percent ?>%; background-color:#124e0b;" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
-                    <span>CSS3</span> <span class="pull-right">75%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 75% ; background-color:#124e0b;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span>PHP</span> <span class="pull-right">70%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%; background-color:#124e0b;" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-                    <span>JAVASCRIPT</span> <span class="pull-right">50%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50% ; background-color:#124e0b;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                   <span>JAVA</span> <span class="pull-right">40%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 40%; background-color:#124e0b;" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-<span>C++</span> <span class="pull-right">50%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 50%; background-color:#124e0b;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
-
-                    <span>Flutter</span> <span class="pull-right">60%</span>
-                    <div class="progress">
-                      <div class="progress-bar" role="progressbar" style="width: 60%; background-color:#124e0b;" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                    </div>
+                    <p><?php echo $dis ?></p>
+                  
+                  <?php }?>
                   </div>
                 </div>
                
@@ -120,27 +127,63 @@ $firstname= $spilt[1]; // piece2
 
                 <div data-aos="fade-up"  class="col-md-6">
                   <div class="about-me pt-4 pt-md-0">
-                    <div class="title-box-2">
-                      <h5 class="title-left">
-                        About me
-                      </h5>
-                    </div>
-                    <p class="lead">Professional Summary</p>
+                  
+                    <h5 class="title-s ">Professional Summary</h5>
                     <p class="lead">
                     <?php echo $about ?>
                     </p>
                    <h4>Experience</h4>
+                   <?php 
+               $sql3="select * from potexperience ";
+               $result3 = mysqli_query($conn,$sql3)or die( mysqli_error($conn));
+                   
+                    
+                    
+                    while ($row3=mysqli_fetch_array($result3)) {
+                        $data=$row3['id'];
+                        $company=$row3['company'];
+                        $position=$row3['position'];
+                        $start=$row3['start'];
+                        $end=$row3['end'];
+                        $exp1=$row3['exp1'];
+                        $exp2=$row3['exp2'];
+                        $exp3=$row3['exp3'];
+                        $exp4=$row3['exp4'];
+                        $exp5=$row3['exp5'];
+                        $exp6=$row3['exp6'];
+                        $exp7=$row3['exp7'];
+                        $exp8=$row3['exp8'];
+if (empty($exp1 || $exp2||$exp3 || $exp4 ||$exp5 || $exp6||$exp7 || $exp8)) {
+$dsplay='none';
+
+
+}
+else {
+  $display='block';
+}
+                    
+                    ?>
+
+    <style>
+      ul li{
+        display: <?php echo $display ?>;
+      }
+    </style>                
                     <ul>
-                      <p>Developer, Gatmedia (2021 - todate)</p>
-                      <p>Duties</p>
-                      <li>Developed and maintained web application using HTML,JAVASCRIPT,CSS5,PHP and MYSQL.</li>
-                      <li> Implemented RESTful APIs to handle data communication between front-end and back-end.</li>
-                      <li>Collaborated with front-end developers to integrate front-end code with back-end functionalit</li>
-                      <li> Debugged and resolved issues to ensure smooth operation of the application.</li>
-                      <li>Contributed to software development lifecycle, including technical documentation, code reviews, and deployment.</li>
-                      <li> Assisted in testing and deploying applications on the production server</li>
+                      <p><?php echo $position ?>, <?php echo $position ?>  (<?php echo $start ?>-<?php echo $end?>)</p>
+                   
+                      <li class="mb-4"><?php echo $exp1 ?></li>
+                      <li class="mb-4"><?php echo $exp2 ?></li>
+                      <li class="mb-4"><?php echo $exp3 ?></li>
+                      <li class="mb-4"><?php echo $exp4 ?></li>
+                      <li class="mb-4"><?php echo $exp5 ?></li>
+                      <li class="mb-4"><?php echo $exp6 ?></li>
+                      <li class="mb-4"><?php echo $exp7 ?></li>
+                      <li class="mb-4"><?php echo $exp8 ?></li>
+                      
 
                     </ul>
+                    <?php }?>
                   </div>
                 </div>
               </div>
@@ -160,83 +203,63 @@ $firstname= $spilt[1]; // piece2
                 Services
               </h3>
               <p class="subtitle-a">
-              As a full stack developer, I am well-equipped to deliver a wide range of services to support your project's development needs. Whether you need assistance with front-end design, back-end development, or a combination of both, I can provide the expertise and guidance you need. Contact me today to discuss your project and how I can assist you in achieving your goals.
+             <?php echo $servicetext?>
               </p>
               <div class="line-mf"></div>
             </div>
           </div>
         </div>
         <div class="row">
-          <div data-aos="fade-up"   class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-briefcase"></i></span>
-              </div>
-              <div data-aos="fade-up" class="service-content">
-                <h2 class="s-title">Web Design</h2>
-                <p class="s-description text-center">
-                Are you in need of a professional web designer to transform your website? Look no further! I am experienced designers I would create visually stunning and user-friendly websites that will leave a lasting impression on your audience
-                </p>
-              </div>
-            </div>
-          </div>
+       
+        <?php
+                          $sql5="select * from potservice ";
+               $result5 = mysqli_query($conn,$sql5)or die( mysqli_error($conn));
+                         
+                    
+                    while ($row5=mysqli_fetch_array($result5)) {
+                        $data=$row5['id'];
+                        $service=$row5['service'];
+                        $dis=$row5['dis'];
+                        $fa=$row5['fa'];
+                        
+                        $services="update/updatservice.php?id=".urlencode(base64_encode($data));
+
+                       
+
+                    
+                    ?>  
           <div data-aos="fade-up" class="col-md-4">
             <div class="service-box">
               <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-card-checklist"></i></span>
+                <span class="ico-circle"><?php echo $fa ?></span>
               </div>
               <div class="service-content">
-                <h2 class="s-title">Web Development</h2>
+                <h2 class="s-title"><?php echo $service ?></h2>
                 <p class="s-description text-center">
-                I utilizes advanced coding techniques and frameworks to develop websites that are not only visually stunning but also highly functional. From seamless user experiences to robust back-end functionality, I ensure that your website is reliable and scalable.
+                <?php echo $dis ?>
                 </p>
               </div>
             </div>
           </div>
-          <div data-aos="fade-up"class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-bar-chart"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Mobile App Development</h2>
-                <p class="s-description text-center">
-                Are you looking for a professional mobile app developer to create your next big idea? Look no further! I am experienced developer to bring your vision to life. With expertise in a wide range of technologies, I can build apps that are not only visually stunning but also highly functional and user-friendly.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div data-aos="fade-up"class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle"><i class="bi bi-binoculars"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Software Development</h2>
-                <p class="s-description text-center">
-                 I am dedicated to delivering results that drive business success. I take the time to understand your business goals and objectives, and then tailor our solutions accordingly. Whether you need a comprehensive software solution or a simple website or app, I have the expertise to deliver tangible results. Choose a developer  and watch your business flourish!
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-ico">
-                <span class="ico-circle "><i class="bi bi-brightness-high"></i></span>
-              </div>
-              <div class="service-content">
-                <h2 class="s-title">Graphic Design</h2>
-                <p class="s-description text-center">
-                With my expertise in graphic design, I can create visually stunning designs that effectively communicate your message and leave a lasting impression on your audience. Whether you need a logo, brochure, website, or any other design project, we have the expertise to deliver exceptional results.
-                </p>
-              </div>
-            </div>
-          </div>
-          
+        <?php } ?>
         </div>
       </div>
     </section><!-- End Services Section -->
 
+
+    <?php
+                          $sql6="select * from potrate ";
+               $result6 = mysqli_query($conn,$sql6)or die( mysqli_error($conn));
+                         
+                    
+                    while ($row6=mysqli_fetch_array($result6)) {
+                        $data=$row6['id'];
+                        $work=$row6['wcom'];
+                        $yearsExperience=$row6['yearsExperience'];
+                        $totalClient=$row6['totalClient'];
+                        $award=$row6['award'];
+                    }
+                        ?>
     <!-- ======= Counter Section ======= -->
     <div data-aos="fade-up"  class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
       <div class="overlay-mf"></div>
@@ -248,7 +271,7 @@ $firstname= $spilt[1]; // piece2
                 <span class="ico-circle"><i class="bi bi-check"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="10" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="<?php echo $work ?>" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">WORKS COMPLETED</span>
               </div>
             </div>
@@ -259,7 +282,7 @@ $firstname= $spilt[1]; // piece2
                 <span class="ico-circle"><i class="bi bi-journal-richtext"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="2" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="<?php echo $yearsExperience ?>" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">YEARS OF EXPERIENCE</span>
               </div>
             </div>
@@ -270,7 +293,7 @@ $firstname= $spilt[1]; // piece2
                 <span class="ico-circle"><i class="bi bi-people"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="5" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="<?php echo $totalClient ?>" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">TOTAL CLIENTS</span>
               </div>
             </div>
@@ -281,7 +304,7 @@ $firstname= $spilt[1]; // piece2
                 <span class="ico-circle"><i class="bi bi-award"></i></span>
               </div>
               <div class="counter-num">
-                <p data-purecounter-start="0" data-purecounter-end="1" data-purecounter-duration="1" class="counter purecounter"></p>
+                <p data-purecounter-start="0" data-purecounter-end="<?php echo $award ?>" data-purecounter-duration="1" class="counter purecounter"></p>
                 <span class="counter-text">AWARD WON</span>
               </div>
             </div>
@@ -299,9 +322,6 @@ $firstname= $spilt[1]; // piece2
               <h3 class="title-a">
                 Portfolio
               </h3>
-              <p class="subtitle-a">
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-              </p>
               <div class="line-mf"></div>
             </div>
           </div>
@@ -317,11 +337,13 @@ include('conn.php');
 
           while ($row=mysqli_fetch_array($result)) {
 $tittle=$row['tittle'];
+$data=$row['id'];
 $date=$row['date'];
 $dis=$row['dis'];
 $type=$row['type'];
 $image=$row['image'];
 
+$link="portfolio-details.php?id=".urlencode(base64_encode($data));
 
           
 
@@ -329,9 +351,9 @@ $image=$row['image'];
 ?>
           <div data-aos="fade-up"   class="col-md-4">
             <div class="work-box">
-              <a href="assets/img/work-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox">
+              <a href="adm/uploadpro/<?php echo $image ?>" data-gallery="portfolioGallery" class="portfolio-lightbox">
                 <div class="work-img">
-                  <img src="assets/img/work-1.jpg" alt="" class="img-fluid">
+                  <img src="adm/uploadpro/<?php echo $image ?>" alt="" class="img-fluid">
                 </div>
               </a>
               <div data-aos="fade-up"   class="work-content">
@@ -344,7 +366,7 @@ $image=$row['image'];
                   </div>
                   <div class="col-sm-4">
                     <div class="w-like">
-                      <a href="portfolio-details.html"> <span class="bi bi-plus-circle"></span></a>
+                      <a href="<?=$link?>"> <span class="bi bi-plus-circle"></span></a>
                     </div>
                   </div>
                 </div>
@@ -456,7 +478,7 @@ $links="blog-details.php?id=$slug";
 <!-- End  Footer -->
 
   <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center bg-success justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
@@ -472,6 +494,21 @@ $links="blog-details.php?id=$slug";
   <script>
      AOS.init();
   </script>
+ <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+ 
+    <script type="text/javascript"
+            src=
+"https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+    </script>
+
 </body>
 
 </html>

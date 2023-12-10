@@ -1,4 +1,11 @@
 <?php include("common/head.php") ;?>
+<title><?php echo $tittle ?></title>
+  <meta content="<?php echo $dis ?>" name="description">
+  <meta content="" name="keywords">
+  <meta property="og:type"               content="article" />
+<meta property="og:title"              content="<?php echo $tittle?>" />
+<meta property="og:description"        content="<?php echo $tittle ?>" />
+<meta property="og:image" content="https://gatmediagh.com/adm/<?php echo $upload?>/<?php echo $image?>" />
 <?php 
 $us=$_SESSION['usertype'];
 if($us!=='Admin'){
@@ -182,35 +189,21 @@ header("location:user_blogs.php");;}
 .fluid a:last-child {
   margin-right: 0rem;
 }
+.card{
+  border-style: solid;
+  border-color: #186104;
+  border-width: thick;
+}
 </style>
 
     
                 
    <!--Table-->
-   <h5 class='mb-3'>Project Management</h5>
-
+   <h5 class='mb-3 text-center'>Project Management</h5>
+<div class="btn">
    <a href="addproject.php" type="button" class="btn btn-primary" >Add Project</a>
-<!-- Large modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button>
+   </div>
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      ...
-    </div>
-  </div>
-</div>
-
-<!-- Small modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-sm">Small modal</button>
-
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">
-    <div class="modal-content">
-      
-    </div>
-  </div>
-</div>
 <?php
 
       
@@ -222,31 +215,32 @@ function create_slug($string){
    return $slug;}
 
  while ($row=mysqli_fetch_array($result)) {
-
+$id=$row['id'];
     $tittle=$row['tittle'];
     $dis=$row['dis'];
+     $image=$row['image'];
      $date=$row['date'];
-     $postid=$row['projectId'];
      $link=$row['link'];
-  $link="delete/project.php?id=".urlencode(base64_encode($postid));
-  $link1="update/edit_blog.php?id=".urlencode(base64_encode($postid));
-  $action="update/edit_blog_status.php?id=".urlencode(base64_encode($postid));
-  $dat=$postid;
+  $link="delete/project.php?id=".urlencode(base64_encode($id));
+
+  $action="update/edit_blog_status.php?id=".urlencode(base64_encode($id));
+
  
-           $code=$dat*1540948579;
-            $cod=$code/1540948579;
+
            
-            $sql1="select * from proimage where proid='$postid'";
-            $result1 = mysqli_query($conn,$sql1)or die( mysqli_error($conn));
-            $row1=mysqli_fetch_array($result1);
+          
   
                  
           
-           $sql2 = "select * from pagehits where postID='$dat' ";
+           $sql2 = "select * from potpagehits where postId='$id' ";
            $result2 = mysqli_query($conn,$sql2)or die( mysqli_error($conn));
            $page_view = mysqli_num_rows($result2) ;
            
 
+           $sql3 = "select * from potpagehits where pageName='$tittle' ";
+           $result3 = mysqli_query($conn,$sql3)or die( mysqli_error($conn));
+           $page_view2 = mysqli_num_rows($result3) ;
+           
 
               ?>
 
@@ -255,14 +249,15 @@ function create_slug($string){
   <div class="col-sm-4 mb-2">
     <div class="card">
       <div class="card-body">
-      <img class="card-img-top" style="display:<?php echo $img ?>;"  src="uploadpro/<?php echo  $row1['image'];?>" alt="Card image cap">
+      <img class="card-img-top" style="display:<?php echo $img ?>;"  src="uploadpro/<?php echo  $row['image'];?>" alt="Card image cap">
           
 
 
-</video>
+
       <p class="date text-center"><?php echo  $row['date'];?> | <samp class="text-bold"><?php echo  $page_view;?></samp> Views</p>
+      <p class="date text-center"><?php echo  $row['date'];?> | <samp class="text-bold"><?php echo  $page_view2;?></samp> Website visits</p>
         <h5 class="tittle text-center"><?php echo  $row['tittle'];?></h5>
-        <p class="dis text-center"><?php echo  $row['dis'];?></p>
+        
 
 
           <div class="social text-center">
@@ -272,7 +267,7 @@ function create_slug($string){
               <a href="https://www.linkedin.com/shareArticle?url=https://Gatmediagh.com/blog_details.php?id=<?php  echo $slug?>" class="fa fa-linkedin"></a>
           </div>
           <div class="button text-center">
-              <a href="<?=$link1; ?>" class="btn btn-primary">Edit</a>
+              <a href="<?=$link1; ?>" class="btn btn-success">Edit</a>
               <a href="<?=$link; ?>" class="btn btn-danger">Delete</a>
           </div>
       </div>

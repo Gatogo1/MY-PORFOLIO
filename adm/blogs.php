@@ -210,7 +210,7 @@ function create_slug($string){
     $tittle=$row['tittle'];
     $image=$row['image'];
      $slug=$row['slug'];
-  $link="delete/del_blog.php?id=".urlencode(base64_encode($data));
+  $link="delete/blog.php?id=".urlencode(base64_encode($data));
   $link1="update/edit_blog.php?id=".urlencode(base64_encode($data));
   $action="update/edit_blog_status.php?id=".urlencode(base64_encode($data));
   $dat=$data;
@@ -232,11 +232,10 @@ function create_slug($string){
   }
 
                  
-          
-           $sql2 = "select * from pagehits where postID='$dat' ";
-           $result2 = mysqli_query($conn,$sql2)or die( mysqli_error($conn));
-           $page_view = mysqli_num_rows($result2) ;
-           
+  $sql3 = "select * from potpagehits where pageName='$slug' ";
+  $result3 = mysqli_query($conn,$sql3)or die( mysqli_error($conn));
+  $page_view2 = mysqli_num_rows($result3) ;
+  
 
      
            $file_t = substr(strrchr($image ,'.'),1);
@@ -263,7 +262,7 @@ else {
   <source src="upload/<?php echo  $row['image'];?>" type="video/mp4">
 
 </video>
-      <p class="date text-center"><?php echo  $row['date'];?> | <samp class="text-bold"><?php echo  $page_view;?></samp> Views</p>
+      <p class="date text-center"><?php echo  $row['date'];?> | <samp class="text-bold"><?php echo  $page_view2;?></samp> Views</p>
         <h5 class="tittle text-center"><?php echo  $row['tittle'];?></h5>
         <p class="dis text-center"><?php echo  $row['category'];?></p>
 

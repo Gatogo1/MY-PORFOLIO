@@ -49,8 +49,9 @@ text-align: center;
   .info{
     margin: 10px;
 text-align: center;
-    height: 50px;
+    height: 200px;
     border-radius: 20px;
+  
    
   
   }
@@ -60,6 +61,7 @@ text-align: center;
 
   .mass{
     color: aliceblue;
+    font-size: 50px;
 
   }
 

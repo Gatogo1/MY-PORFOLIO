@@ -34,7 +34,13 @@
       <div class="invalid-feedback">Please fill out this field.</div>
     </div>
      
-
+    <div class="form-group">
+   
+      <label for="title">Company</label>
+      <input type="text" class="form-control" id="title" placeholder="Enter company name" name="company" required>
+      <div class="valid-feedback">Valid.</div>
+      <div class="invalid-feedback">Please fill out this field.</div>
+    </div>
 
       <div class="form-group">
     <label for="pwd">category</label>
@@ -60,8 +66,8 @@
 <label for="title"> link to project </label>
       <input type="text" class="form-control mb-2" id="title" placeholder="Enter link " name="link" required>
 
-      <label for="title">Short Discription</label>
-      <textarea  value="3" style="font-size: 20px"  class="form-control" rows="4"  id="summernote"   name="dis"></textarea>
+      <label for="title"> Discription</label>
+      <textarea   class="form-control" rows="4"  id="summernote"   name="dis"></textarea>
 <?php 
 
 include('conn.php');
@@ -113,8 +119,9 @@ include('conn.php');
 if(isset($_POST['submit'])){
   $filename = $_FILES['image']['name'];
     $tittle=addslashes($_POST['title']);
-     $dis=$_POST['dis'];
+     $dis=addslashes($_POST['dis']);
      $proid=$_POST['proid'];
+     $company=$_POST['company'];
     $date=$_POST['date'];
      $link=$_POST['link'];
      $type=$_POST['type'];
@@ -137,7 +144,7 @@ if( in_array($imageFileType,$extensions_arr) ){
 // Upload files and store in database
 if(move_uploaded_file($_FILES["image"]["tmp_name"],'uploadpro/'.$filename )){
 		// Image db insert sql
-		$sql = "INSERT INTO `project`(`projectId`, `tittle`, `dis`,`image`, `type`,`date`, `link`) VALUES ('$proid','$tittle','$dis','$date','$image','$type','$link')";
+		$sql = "INSERT INTO `project`(`company`, `tittle`, `dis`,`image`, `date`,`type`, `link`) VALUES ('$company','$tittle','$dis','$filename','$date','$type','$link')";
 		if(mysqli_query($conn,$sql)){
 
       echo"<script>alert('Add three project images'); window.location.href='project.php'</script>";

@@ -20,6 +20,7 @@ RewriteRule ^addblog?$ addblog.php
 RewriteRule ^register?$ form.php
 RewriteRule ^post?$ post.php
 
+
 RewriteRule ^([^\.]+)\.html /blog_details.php?ids=$1 [L]
 
 #RewriteEngine On

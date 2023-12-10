@@ -1,49 +1,46 @@
 <!--nav--->
-<div class="content col-sm-2 " style="background-color:#0c0821 ;">
+<div style="background-color:#186104;"  class="content col-sm-1.5  ">
 
                
 
 
-<div class=" container-fluid nav  pt-4">
-    <div class="row">
+<div class="  nav  pt-4 ">
+    <div class=" no-gutters">
         <div class="   menu col-sm-12">
-            <a class=" text-white dropdown-toggle" href="dashboard" ><i class=" fa fa-dashboard" style="font-size:15px"></i> Dashboard</a> 
+            <a class=" text-white m-4" href="dashboard" ><i class=" fa fa-dashboard" style="font-size:15px"></i> Dashboard</a> 
+         </div>
+<hr>
+         <div class="   menu col-sm-12">
+            <a class=" text-white  m-4" href="about" ><i class=" fa fa-id-card-o" style="font-size:15px"></i>About-me</a> 
+         </div>
+<hr>
+         <div class="   menu col-sm-12">
+            <a class=" text-white  m-4" href="expirience" ><i class=" fa fa-building" style="font-size:15px"></i>Experience</a> 
+         </div>
+<hr>
+         <div class="   menu col-sm-12">
+            <a class=" text-white  m-4 " href="projects" ><i class=" fa  fa-handshake-o" style="font-size:15px"></i>Projects</a> 
+         </div>
+<hr>
+         <div class="   menu col-sm-12">
+            <a class=" text-white  m-4" href="blog" ><i class=" fa fa-newspaper-o'" style="font-size:15px"></i>Blogs</a> 
          </div>
 
 
 
 
-         <div class="  menu col-sm-12">
-            <a   class=" text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-group" style="font-size:15px"></i>   Manage Users </a> 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="onboard_user.php">Confirm Users</a>
-                <a class="dropdown-item" href="users.php">View Users</a>
-              </div>
-         </div>
+   
 
-
-
-
-         <div class="  menu col-sm-12">
-            <a    class="   text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="	fa fa-info-circle" style="font-size:15px"></i>   Info </a> 
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="news.php">Manage New</a>
-                <a class="dropdown-item" href="manage_blogs.php">Manage Blogs </a>
-                <a class="dropdown-item" href="#">Manage Alerts </a>
-               
-              </div>
-         </div>
-
-         <div class="  menu col-sm-12">
+         <!---<div class="  menu col-sm-12">
             <a   class=" text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fa fa-file-sound-o" style="font-size:15px"></i> Portfolio </a> 
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="about">About-me</a>
-                <a class="dropdown-item" href="expiriencephp">Experience</a>
+                <a class="dropdown-item" href="about"></a>
+                <a class="dropdown-item" href="expirience">Experience</a>
                 <a class="dropdown-item" href="project">Projects</a>
                 <a class="dropdown-item" href="blog">Blogs</a>
                
               </div>
-         </div>
+         </div> --->
 
          
 
